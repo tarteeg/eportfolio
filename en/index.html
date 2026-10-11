@@ -80,67 +80,86 @@
   <section id="projects">
     <h2>Projects</h2>
     <p class="section-intro">Four projects from my GitHub: from statistical modeling to graph optimization, plus an operations-oriented study (MLOps) and a software design exercise.</p>
+    <div class="filters" role="group" aria-label="Filter projects">
+      <button type="button" class="filter active" data-filter="all" aria-pressed="true">All</button>
+      <button type="button" class="filter" data-filter="ml" aria-pressed="false">ML & Data science</button>
+      <button type="button" class="filter" data-filter="data" aria-pressed="false">Data engineering</button>
+      <button type="button" class="filter" data-filter="optim" aria-pressed="false">Optimization</button>
+      <button type="button" class="filter" data-filter="soft" aria-pressed="false">Software engineering</button>
+    </div>
     <div class="projects">
 
-      <article class="project">
+      <article class="project" data-tags="ml">
         <header>
           <h3>Air Quality Forecasting in Montréal</h3>
           <p class="meta">Julia · 01/2026 – 04/2026 · team of 5 · <strong>95/100</strong> · MTH3302</p>
         </header>
         <p>Forecast the daily concentration of fine particulate matter (PM) across 7 Montréal stations for all 365 days of 2025, i.e. 2,555 predictions, from 17 years of data.</p>
+        <div class="details" id="d0"><div class="details-inner">
         <ul>
           <li>Air + weather data join, exploratory analysis, <strong>20+ engineered features</strong> (rolling means, sine/cosine seasonality, temperature × month interactions)</li>
           <li>Missing values handled per variable; <strong>temporal split</strong> validation, never random</li>
           <li>4 variants compared; selected model: linear regression (GLM.jl, 23 variables) with no feature built from past PM, to avoid error propagation</li>
           <li><strong>RMSE of 18.25</strong> on Kaggle; limitations documented: underestimation of wildfire smoke episodes</li>
         </ul>
+        </div></div>
+        <button class="toggle" type="button" aria-expanded="false" aria-controls="d0" data-more="Show details" data-less="Hide details">Show details</button>
         <ul class="chips"><li>Time series</li><li>Linear regression</li><li>Feature engineering</li></ul>
         <p class="links"><a href="https://github.com/tarteeg/prediction-qualite-air-montreal" target="_blank" rel="noopener">Code on GitHub ↗</a></p>
       </article>
 
-      <article class="project">
+      <article class="project" data-tags="optim">
         <header>
           <h3>Graph Clustering by Modularity Maximization (VNS)</h3>
           <p class="meta">Julia · 07/2026 – present · INF8111 Data Mining</p>
         </header>
         <p>Step-by-step reimplementation of the pipeline from Aloise et al. (10<sup>th</sup> DIMACS Implementation Challenge), a paper suggested by Professor Daniel Aloise.</p>
+        <div class="details" id="d1"><div class="details-inner">
         <ul>
           <li><strong>LPA → LPAm → LPAm+ → VNS/VNDS</strong>: each step escapes the local optima of the previous one</li>
           <li><strong>9 benchmark graphs</strong>, from 34 to over 31,000 vertices, <strong>40 runs</strong> per method and graph (seeds 1 to 40)</li>
           <li>Comparison with the literature, review of <strong>5 scientific papers</strong></li>
           <li>Julia chosen for near-compiled speed with Python-like readability</li>
         </ul>
+        </div></div>
+        <button class="toggle" type="button" aria-expanded="false" aria-controls="d1" data-more="Show details" data-less="Hide details">Show details</button>
         <ul class="chips"><li>Graph theory</li><li>Metaheuristics</li><li>Optimization</li></ul>
         <p class="links"><a href="https://github.com/tarteeg/vns-modularity-clustering" target="_blank" rel="noopener">Code on GitHub ↗</a></p>
       </article>
 
-      <article class="project">
+      <article class="project" data-tags="data ml">
         <header>
           <h3>Disk Failure Prediction: an Operations-Centered Approach</h3>
           <p class="meta">Python · in progress · Backblaze Drive Stats 2025 data</p>
         </header>
         <p>Study of hard-drive failure prediction from an operations standpoint: the goal is not just a good score, but a prediction that is useful in time.</p>
+        <div class="details" id="d2"><div class="details-inner">
         <ul>
           <li>Centralized, reproducible configuration: prediction horizons, <strong>minimum warning times</strong>, critical SMART attributes, <strong>cost ratios</strong></li>
           <li>Schema audit of daily CSV files, conversion to compressed <strong>Parquet</strong>, queries with <strong>DuckDB</strong></li>
           <li>Literature review: 5 papers on failure prediction and cost-sensitive learning</li>
           <li>Current phase: Q1 2025 exploration to frame the problem statement; extension to the full year planned</li>
         </ul>
+        </div></div>
+        <button class="toggle" type="button" aria-expanded="false" aria-controls="d2" data-more="Show details" data-less="Hide details">Show details</button>
         <ul class="chips"><li>Data engineering</li><li>Cost-sensitive learning</li><li>DuckDB / Parquet</li></ul>
         <p class="links"><a href="https://github.com/tarteeg/disk-failure-analysis" target="_blank" rel="noopener">Code on GitHub ↗</a></p>
       </article>
 
-      <article class="project">
+      <article class="project" data-tags="soft">
         <header>
           <h3>Brick Breaker, an Arcade Game in OCaml</h3>
           <p class="meta">OCaml · ENSEEIHT · modular software design</p>
         </header>
         <p>Brick breaker game with real-time physics and collisions, built as an architecture exercise.</p>
+        <div class="details" id="d3"><div class="details-inner">
         <ul>
           <li>Functional programming with explicit state transitions</li>
           <li><strong>Quadtree</strong> to speed up spatial queries between nearby objects</li>
           <li>Modular architecture (game logic, collisions, entry point), unit tests, Dune build</li>
         </ul>
+        </div></div>
+        <button class="toggle" type="button" aria-expanded="false" aria-controls="d3" data-more="Show details" data-less="Hide details">Show details</button>
         <ul class="chips"><li>OCaml</li><li>Data structures</li><li>Dune</li></ul>
         <p class="links"><a href="https://github.com/tarteeg/brick_breaker" target="_blank" rel="noopener">Code on GitHub ↗</a></p>
       </article>

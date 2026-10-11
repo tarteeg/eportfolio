@@ -197,3 +197,33 @@ footer { text-align: center; color: var(--muted); font-size: .85rem; padding-bot
 .lang-switch a:hover { color: var(--accent); background: var(--accent-soft); }
 .lang-switch .active { background: var(--accent); color: #fff; }
 :root[data-theme="dark"] .lang-switch .active { color: #0d1218; }
+
+/* Filtres de projets */
+.filters { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 1.4rem; }
+.filter {
+  font: inherit; font-size: .88rem; font-weight: 600; cursor: pointer;
+  padding: .4rem .95rem; border-radius: 99px;
+  border: 1px solid var(--border); background: var(--surface); color: var(--muted);
+  transition: background .2s, color .2s, border-color .2s;
+}
+.filter:hover { border-color: var(--accent); color: var(--accent); }
+.filter.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+:root[data-theme="dark"] .filter.active { color: #0d1218; }
+.project[hidden] { display: none; }
+.project.pop { animation: pop .35s ease; }
+@keyframes pop { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+
+/* Cartes dépliables */
+.details { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .35s ease; }
+.details-inner { overflow: hidden; min-height: 0; }
+.project.open .details { grid-template-rows: 1fr; }
+.toggle {
+  font: inherit; font-size: .88rem; font-weight: 600; cursor: pointer; padding: .3rem 0; margin-top: .4rem;
+  background: none; border: 0; color: var(--accent); display: inline-flex; align-items: center; gap: .4rem;
+}
+.toggle::after { content: "▾"; transition: transform .25s; }
+.project.open .toggle::after { transform: rotate(180deg); }
+.toggle:hover { text-decoration: underline; }
+@media (prefers-reduced-motion: reduce) {
+  .details, .toggle::after, .project.pop { transition: none; animation: none; }
+}

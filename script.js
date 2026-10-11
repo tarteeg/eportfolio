@@ -20,3 +20,32 @@ const io = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
 }, { threshold: 0.1 });
 items.forEach(el => io.observe(el));
+
+// Cartes de projets dépliables
+document.querySelectorAll('.project .toggle').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const card = btn.closest('.project');
+    const open = card.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open);
+    btn.textContent = open ? btn.dataset.less : btn.dataset.more;
+  });
+});
+
+// Filtres de projets
+const filters = document.querySelectorAll('.filter');
+const cards = document.querySelectorAll('.project[data-tags]');
+filters.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const tag = btn.dataset.filter;
+    filters.forEach(b => {
+      const on = b === btn;
+      b.classList.toggle('active', on);
+      b.setAttribute('aria-pressed', on);
+    });
+    cards.forEach(card => {
+      const show = tag === 'all' || card.dataset.tags.split(' ').includes(tag);
+      card.hidden = !show;
+      if (show) { card.classList.remove('pop'); void card.offsetWidth; card.classList.add('pop'); }
+    });
+  });
+});
