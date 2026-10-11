@@ -185,9 +185,15 @@ footer { text-align: center; color: var(--muted); font-size: .85rem; padding-bot
 .cv-viewer p { padding: 1.5rem; }
 @media (max-width: 760px) { .cv-viewer { display: none; } }
 
-.lang {
-  border: 1px solid var(--border); background: var(--surface); color: var(--text);
-  border-radius: 8px; padding: 0 .65rem; height: 2.2rem; display: inline-flex; align-items: center;
-  font-size: .85rem; font-weight: 700; text-decoration: none;
+.lang-switch {
+  display: inline-flex; padding: 3px; gap: 2px; height: 2.2rem;
+  border: 1px solid var(--border); border-radius: 99px; background: var(--surface);
 }
-.lang:hover { border-color: var(--accent); color: var(--accent); }
+.lang-switch a, .lang-switch span {
+  display: inline-flex; align-items: center; padding: 0 .75rem; border-radius: 99px;
+  font-size: .8rem; font-weight: 700; letter-spacing: .04em; text-decoration: none;
+  color: var(--muted); transition: background .2s, color .2s;
+}
+.lang-switch a:hover { color: var(--accent); background: var(--accent-soft); }
+.lang-switch .active { background: var(--accent); color: #fff; }
+:root[data-theme="dark"] .lang-switch .active { color: #0d1218; }
