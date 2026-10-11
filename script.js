@@ -21,6 +21,40 @@ const io = new IntersectionObserver(entries => {
 }, { threshold: 0.1 });
 items.forEach(el => io.observe(el));
 
+// Sections : marque de début, lien actif dans la navigation, progression
+const navLinks = [...document.querySelectorAll('.nav nav a')];
+const sections = [...document.querySelectorAll('main > section')];
+const sectionIO = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in-view'); sectionIO.unobserve(e.target); } });
+}, { threshold: 0.05 });
+sections.forEach(s => sectionIO.observe(s));
+
+// Section courante : la dernière dont le haut a passé 40 % de la fenêtre (la dernière en bas de page)
+let currentId = null;
+const updateActive = () => {
+  const atBottom = innerHeight + scrollY >= document.documentElement.scrollHeight - 4;
+  let current = atBottom ? sections[sections.length - 1] : sections[0];
+  if (!atBottom) sections.forEach(s => { if (s.getBoundingClientRect().top <= innerHeight * 0.4) current = s; });
+  if (current.id === currentId) return;
+  currentId = current.id;
+  const link = navLinks.find(a => a.getAttribute('href') === '#' + current.id);
+  // Sections sans lien (formation, centres d'intérêt) : on garde le lien précédent
+  if (link || current.classList.contains('hero')) navLinks.forEach(a => a.classList.toggle('active', a === link));
+};
+
+const bar = document.createElement('div');
+bar.className = 'progress';
+bar.setAttribute('aria-hidden', 'true');
+document.body.appendChild(bar);
+const updateBar = () => {
+  const max = document.documentElement.scrollHeight - innerHeight;
+  bar.style.transform = 'scaleX(' + (max > 0 ? Math.min(scrollY / max, 1) : 0) + ')';
+};
+addEventListener('scroll', () => { updateBar(); updateActive(); }, { passive: true });
+addEventListener('resize', updateActive);
+updateBar();
+updateActive();
+
 // Cartes de projets dépliables
 document.querySelectorAll('.project .toggle').forEach(btn => {
   btn.addEventListener('click', () => {
