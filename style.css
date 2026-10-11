@@ -1,12 +1,12 @@
 :root {
-  --bg: #fafaf7;
-  --surface: #ffffff;
-  --text: #1c2430;
+  --bg: #ebe7dd;
+  --surface: #f5f2ea;
+  --text: #222a35;
   --muted: #5b6676;
-  --border: #e4e6ea;
+  --border: #d5d0c3;
   --accent: #2f5d8a;
   --accent-2: #c9702b;
-  --accent-soft: #e8f0f8;
+  --accent-soft: #dce5ec;
   --shadow: 0 4px 20px rgba(20, 30, 50, .07);
 }
 :root[data-theme="dark"] {
