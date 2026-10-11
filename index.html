@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sami Mostfa — ML & MLOps Engineer</title>
+  <meta name="description" content="Portfolio de Sami Mostfa, étudiant en maîtrise à Polytechnique Montréal, double compétence IA/ML et infrastructure. Recherche un stage été 2027 à Montréal.">
+  <link rel="icon" href="assets/sami_mostfa.jpg">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="nav">
+  <a class="brand" href="#accueil">Sami Mostfa</a>
+  <nav>
+    <a href="#profil">Profil</a>
+    <a href="#projets">Projets</a>
+    <a href="#experience">Expérience</a>
+    <a href="#competences">Compétences</a>
+    <a href="#cv">CV</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <button id="theme" aria-label="Changer de thème">◐</button>
+</header>
+
+<main>
+  <!-- ACCUEIL -->
+  <section id="accueil" class="hero">
+    <div class="hero-text">
+      <p class="eyebrow">Polytechnique Montréal · ENSEEIHT</p>
+      <h1>Sami Mostfa</h1>
+      <p class="tagline">Je conçois des modèles de ML <em>et</em> l'infrastructure qui les met en production.</p>
+      <p class="lead">Étudiant en maîtrise professionnelle en génie informatique, à la recherche d'un stage à Montréal pour l'<strong>été 2027</strong> (3 mai – 31 août) en <strong>ML Engineering, MLOps ou Data Engineering</strong>.</p>
+      <div class="cta">
+        <a class="btn primary" href="#projets">Voir mes projets</a>
+        <a class="btn" href="#cv">Voir mon CV</a>
+      </div>
+    </div>
+    <figure class="hero-photo">
+      <img src="assets/sami_mostfa.jpg" alt="Portrait de Sami Mostfa" width="400" height="400">
+    </figure>
+  </section>
+
+  <!-- PROFIL / DOUBLE COMPETENCE -->
+  <section id="profil">
+    <h2>Un profil à double compétence</h2>
+    <p class="section-intro">Entre l'ingénierie logicielle et l'IA, je me place là où les projets ML se heurtent d'habitude à la réalité : le déploiement.</p>
+    <div class="duo">
+      <article class="card">
+        <span class="badge">Génie logiciel & Infra</span>
+        <h3>ENSEEIHT, Toulouse</h3>
+        <p>Systèmes concurrents, réseaux, bases de données, architecture des ordinateurs, méthodes formelles. Stage en calcul haute performance : Kubernetes, Linux, Bash, vLLM.</p>
+        <ul class="chips"><li>Kubernetes</li><li>Docker</li><li>Linux</li><li>Kyverno</li><li>NGINX</li><li>Bash</li></ul>
+      </article>
+      <div class="plus" aria-hidden="true">+</div>
+      <article class="card">
+        <span class="badge alt">IA & Machine Learning</span>
+        <h3>Polytechnique Montréal</h3>
+        <p>IA, ML, fouille de données, statistique bayésienne, TALN, optimisation continue. Moyenne cumulative de <strong>3.83/4.0</strong>.</p>
+        <ul class="chips"><li>PyTorch</li><li>TensorFlow</li><li>scikit-learn</li><li>pandas</li><li>XGBoost</li><li>Julia</li></ul>
+      </article>
+    </div>
+    <p class="synthesis">Le résultat : un profil capable d'entraîner un modèle, de l'évaluer rigoureusement, puis de l'embarquer sur un cluster Kubernetes. C'est ce que j'ai fait chez Axians en déployant un serveur d'inférence <strong>LLM (vLLM)</strong>, et je cherche à le refaire de bout en bout.</p>
+
+    <div class="stats">
+      <div><strong>3.83</strong><span>moyenne cumulative /4.0</span></div>
+      <div><strong>95/100</strong><span>projet ML en équipe</span></div>
+      <div><strong>31 000+</strong><span>sommets de graphes traités</span></div>
+      <div><strong>2026</strong><span>solution mise en production par Axians</span></div>
+    </div>
+  </section>
+
+  <!-- PROJETS -->
+  <section id="projets">
+    <h2>Projets</h2>
+    <p class="section-intro">Quatre projets issus de mon GitHub : de la modélisation statistique à l'optimisation de graphes, jusqu'à une étude orientée exploitation (MLOps) et un exercice de conception logicielle.</p>
+    <div class="projects">
+
+      <article class="project">
+        <header>
+          <h3>Prédiction de la qualité de l'air à Montréal</h3>
+          <p class="meta">Julia · 01/2026 – 04/2026 · équipe de 5 · <strong>95/100</strong> · MTH3302</p>
+        </header>
+        <p>Prédire la concentration journalière de particules fines (PM) sur 7 stations montréalaises pour les 365 jours de 2025, soit 2 555 prédictions, à partir de 17 ans de données.</p>
+        <ul>
+          <li>Jointure air + météo, analyse exploratoire, <strong>20+ variables dérivées</strong> (moyennes mobiles, saisonnalité sinus/cosinus, interactions température × mois)</li>
+          <li>Valeurs manquantes traitées par variable ; validation par <strong>séparation temporelle</strong>, jamais aléatoire</li>
+          <li>4 variantes comparées ; modèle retenu : régression linéaire (GLM.jl, 23 variables) sans variable construite sur le PM passé, pour éviter la propagation d'erreur</li>
+          <li><strong>RMSE de 18,25</strong> sur Kaggle ; limites documentées : sous-estimation des épisodes de fumée</li>
+        </ul>
+        <ul class="chips"><li>Séries temporelles</li><li>Régression linéaire</li><li>Feature engineering</li></ul>
+        <p class="links"><a href="https://github.com/tarteeg/prediction-qualite-air-montreal" target="_blank" rel="noopener">Code sur GitHub ↗</a></p>
+      </article>
+
+      <article class="project">
+        <header>
+          <h3>Clustering de graphes par maximisation de la modularité (VNS)</h3>
+          <p class="meta">Julia · 07/2026 – aujourd'hui · INF8111 Fouille de données</p>
+        </header>
+        <p>Réimplémentation, étape par étape, du pipeline de l'article d'Aloise et al. (10<sup>e</sup> DIMACS Implementation Challenge), proposé par le professeur Daniel Aloise.</p>
+        <ul>
+          <li><strong>LPA → LPAm → LPAm+ → VNS/VNDS</strong> : chaque étape échappe aux optima locaux de la précédente</li>
+          <li><strong>9 graphes</strong> de référence, de 34 à plus de 31 000 sommets, <strong>40 exécutions</strong> par méthode et par graphe (graines 1 à 40)</li>
+          <li>Comparaison avec la littérature, revue de <strong>5 articles scientifiques</strong></li>
+          <li>Julia choisi pour la vitesse proche du compilé avec la lisibilité de Python</li>
+        </ul>
+        <ul class="chips"><li>Théorie des graphes</li><li>Métaheuristiques</li><li>Optimisation</li></ul>
+        <p class="links"><a href="https://github.com/tarteeg/vns-modularity-clustering" target="_blank" rel="noopener">Code sur GitHub ↗</a></p>
+      </article>
+
+      <article class="project">
+        <header>
+          <h3>Prédiction de pannes de disques : une approche orientée exploitation</h3>
+          <p class="meta">Python · en cours · données Backblaze Drive Stats 2025</p>
+        </header>
+        <p>Étude de la prédiction de pannes de disques durs du point de vue de l'exploitation : le but n'est pas seulement un bon score, mais une prédiction utile à temps.</p>
+        <ul>
+          <li>Configuration centralisée et reproductible : horizons de prédiction, <strong>délais d'alerte minimaux</strong>, attributs SMART critiques, <strong>ratios de coûts</strong></li>
+          <li>Audit du schéma des fichiers CSV quotidiens, conversion en <strong>Parquet</strong> compressé, requêtes avec <strong>DuckDB</strong></li>
+          <li>Veille scientifique : 5 articles sur la prédiction de pannes et l'apprentissage sensible aux coûts</li>
+          <li>Phase actuelle : exploration du T1 2025 pour formuler la problématique ; extension prévue à l'année complète</li>
+        </ul>
+        <ul class="chips"><li>Data engineering</li><li>Cost-sensitive learning</li><li>DuckDB / Parquet</li></ul>
+        <p class="links"><a href="https://github.com/tarteeg/disk-failure-analysis" target="_blank" rel="noopener">Code sur GitHub ↗</a></p>
+      </article>
+
+      <article class="project">
+        <header>
+          <h3>Brick Breaker, jeu d'arcade en OCaml</h3>
+          <p class="meta">OCaml · ENSEEIHT · conception logicielle modulaire</p>
+        </header>
+        <p>Casse-briques avec physique et collisions en temps réel, conçu comme un exercice d'architecture.</p>
+        <ul>
+          <li>Programmation fonctionnelle avec transitions d'état explicites</li>
+          <li><strong>Quadtree</strong> pour accélérer les requêtes spatiales entre objets proches</li>
+          <li>Architecture modulaire (logique de jeu, collisions, point d'entrée), tests unitaires, build avec Dune</li>
+        </ul>
+        <ul class="chips"><li>OCaml</li><li>Structures de données</li><li>Dune</li></ul>
+        <p class="links"><a href="https://github.com/tarteeg/brick_breaker" target="_blank" rel="noopener">Code sur GitHub ↗</a></p>
+      </article>
+
+    </div>
+    <p class="more"><a href="https://github.com/tarteeg" target="_blank" rel="noopener">Voir tous mes dépôts sur GitHub ↗</a></p>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <h2>Expérience</h2>
+    <div class="timeline">
+
+      <article class="job featured">
+        <div class="when">06/2025 – 08/2025</div>
+        <div>
+          <h3>Stage Ingénieur en Calcul Haute Performance</h3>
+          <p class="meta">Axians HPC · Labège, France</p>
+          <p class="highlight">Solution mise en production par Axians en 2026</p>
+          <ul>
+            <li>Conception d'une architecture intégrant <strong>Kubernetes</strong> au portail HPC <strong>Open OnDemand</strong>, en contournant les limites de l'adaptateur natif (pas de <em>Deployments</em>)</li>
+            <li>Wrapper <code>kubectl</code> en <strong>Bash</strong> qui intercepte les appels de l'adaptateur et fiabilise l'affichage du statut des jobs</li>
+            <li>Politiques <strong>Kyverno</strong> : nettoyage des ressources orphelines, quotas, sécurisation des accès (NFS, GPU)</li>
+            <li>Déploiement et configuration d'un serveur d'inférence <strong>LLM (vLLM)</strong> sur le cluster</li>
+            <li>Document d'architecture technique (Apache, NGINX, Passenger, adaptateur Kubernetes)</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="job">
+        <div class="when">09/2020 – 06/2025</div>
+        <div>
+          <h3>Professeur particulier en mathématiques & informatique</h3>
+          <p class="meta">Superprof · indépendant · Toulouse</p>
+          <p>~15 lycéens, ~80 heures. Communication, adaptabilité et autonomie sur plusieurs années.</p>
+        </div>
+      </article>
+
+      <article class="job">
+        <div class="when">07/2024 – 09/2024</div>
+        <div>
+          <h3>Sauveteur aquatique</h3>
+          <p class="meta">Centre Aquatique Escap'ad · Saint-Laurent-de-Chamousset</p>
+          <p>Surveillance des bassins et intervention d'urgence : prise de responsabilité et décision en situation critique.</p>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- FORMATION -->
+  <section id="formation">
+    <h2>Formation</h2>
+    <div class="edu">
+      <article>
+        <span class="when">08/2025 – 08/2027</span>
+        <h3>Polytechnique Montréal</h3>
+        <p class="meta">Maîtrise professionnelle en génie informatique · GPA 3.83/4.0</p>
+        <p>IA, Machine Learning, Optimisation continue, Fouille de données, Visualisation de données, Statistique bayésienne, TALN, DevOps intelligent pour systèmes logiciels à grande échelle, Cybersécurité.</p>
+      </article>
+      <article>
+        <span class="when">09/2023 – 06/2025</span>
+        <h3>ENSEEIHT</h3>
+        <p class="meta">Ingénierie logicielle · Toulouse</p>
+        <p>Génie logiciel, systèmes concurrents, bases de données, graphes, calculabilité & complexité, réseaux, méthodes formelles.</p>
+      </article>
+      <article>
+        <span class="when">09/2021 – 07/2023</span>
+        <h3>Classes préparatoires MPI* / MP2I</h3>
+        <p class="meta">Lycée Claude Fauriel · Saint-Étienne</p>
+        <p>Mathématiques, physique, informatique.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- COMPETENCES -->
+  <section id="competences">
+    <h2>Compétences</h2>
+    <div class="skills">
+      <div><h3>Langages</h3><ul class="chips"><li>Python</li><li>Julia</li><li>C</li><li>Java</li><li>TypeScript</li><li>JavaScript</li><li>OCaml</li><li>Ada</li><li>Bash</li><li>HTML/CSS</li><li>LaTeX</li></ul></div>
+      <div><h3>ML, IA & Deep Learning</h3><ul class="chips"><li>PyTorch</li><li>TensorFlow</li><li>Keras</li><li>scikit-learn</li><li>XGBoost</li><li>GLM.jl</li></ul></div>
+      <div><h3>IA agentique</h3><ul class="chips"><li>MCP</li><li>OpenRouter</li><li>Claude Code</li><li>Prompt engineering</li><li>Skills & tools personnalisés</li><li>vLLM</li></ul></div>
+      <div><h3>Données & visualisation</h3><ul class="chips"><li>NumPy</li><li>Pandas</li><li>SQL</li><li>Seaborn</li><li>Matplotlib</li><li>D3.js</li><li>DataFrames.jl</li></ul></div>
+      <div><h3>DevOps & infrastructure</h3><ul class="chips"><li>Kubernetes</li><li>Docker</li><li>Kyverno</li><li>NGINX</li><li>Apache</li><li>GCP</li><li>Linux</li></ul></div>
+      <div><h3>Langues</h3><ul class="chips"><li>Français (courant)</li><li>Anglais B2 (Cambridge Linguaskill)</li><li>Espagnol A2</li><li>Arabe (notions)</li></ul></div>
+    </div>
+  </section>
+
+  <!-- HORS CODE -->
+  <section id="interets">
+    <h2>Au-delà du code</h2>
+    <div class="interests">
+      <div><strong>Musique</strong><p>14 ans de guitare, théorie musicale avancée, 10 h de cours dispensés. <a href="https://youtube.com/@sami.musiic" target="_blank" rel="noopener">Ma chaîne YouTube ↗</a></p></div>
+      <div><strong>Secourisme</strong><p>400 h cumulées : BNSSA (8 mois de formation) et PSE1 (40 h).</p></div>
+      <div><strong>Sport</strong><p>Natation et musculation.</p></div>
+    </div>
+  </section>
+
+  <!-- CV -->
+  <section id="cv">
+    <h2>Mon CV</h2>
+    <p class="section-intro">Consultable directement ici, ou en PDF.</p>
+    <div class="cta">
+      <a class="btn primary" href="assets/cv_Sami_Mostfa.pdf" target="_blank" rel="noopener">Ouvrir dans un nouvel onglet</a>
+      <a class="btn" href="assets/cv_Sami_Mostfa.pdf" download>Télécharger le PDF</a>
+    </div>
+    <object class="cv-viewer" data="assets/cv_Sami_Mostfa.pdf#view=FitH" type="application/pdf" aria-label="CV de Sami Mostfa">
+      <p>L'aperçu n'est pas disponible sur cet appareil. <a href="assets/cv_Sami_Mostfa.pdf" target="_blank" rel="noopener">Ouvrir le CV en PDF</a>.</p>
+    </object>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact">
+    <h2>Travaillons ensemble</h2>
+    <p>Disponible pour un stage à Montréal du <strong>3 mai au 31 août 2027</strong>.</p>
+    <div class="cta center">
+      <a class="btn primary" href="mailto:sami.mostfa@etud.polymtl.ca">sami.mostfa@etud.polymtl.ca</a>
+      <a class="btn" href="https://github.com/tarteeg" target="_blank" rel="noopener">GitHub</a>
+      <a class="btn" href="https://www.linkedin.com/in/sami-mostfa" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </section>
+</main>
+
+<footer>© 2026 Sami Mostfa</footer>
+<script src="script.js"></script>
+</body>
+</html>
