@@ -184,3 +184,10 @@ footer { text-align: center; color: var(--muted); font-size: .85rem; padding-bot
 }
 .cv-viewer p { padding: 1.5rem; }
 @media (max-width: 760px) { .cv-viewer { display: none; } }
+
+.lang {
+  border: 1px solid var(--border); background: var(--surface); color: var(--text);
+  border-radius: 8px; padding: 0 .65rem; height: 2.2rem; display: inline-flex; align-items: center;
+  font-size: .85rem; font-weight: 700; text-decoration: none;
+}
+.lang:hover { border-color: var(--accent); color: var(--accent); }
