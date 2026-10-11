@@ -49,3 +49,27 @@ filters.forEach(btn => {
     });
   });
 });
+
+// Frise du parcours
+const tlItems = document.querySelectorAll('.tl-item');
+tlItems.forEach(item => {
+  const btn = item.querySelector('.tl-card');
+  btn.addEventListener('click', () => {
+    const open = item.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open);
+  });
+});
+const tlFilters = document.querySelectorAll('.tl-filter');
+tlFilters.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const t = btn.dataset.tl;
+    tlFilters.forEach(b => {
+      b.classList.toggle('active', b === btn);
+      b.setAttribute('aria-pressed', b === btn);
+    });
+    tlItems.forEach(item => {
+      // l'objectif (stage visé) reste toujours affiché
+      item.hidden = !(t === 'all' || item.dataset.type === t || item.dataset.type === 'objectif');
+    });
+  });
+});
