@@ -94,7 +94,7 @@
 <li class="tl-item" data-type="projet">
         <button class="tl-card" type="button" aria-expanded="false" aria-controls="tl1">
           <span class="tl-when">07/2026 – aujourd'hui</span>
-          <span class="tl-title">Clustering de graphes par modularité</span>
+          <span class="tl-title">Clustering de graphes par maximisation de la modularité (VNS)</span>
           <span class="tl-sub">Julia · Polytechnique Montréal</span>
           <span class="tl-type">Projet</span>
         </button>
@@ -187,6 +187,25 @@
     </div>
     <div class="projects">
 
+      <article class="project" data-tags="optim">
+        <header>
+          <h3>Clustering de graphes par maximisation de la modularité (VNS)</h3>
+          <p class="meta">Julia · 07/2026 – aujourd'hui · INF8111 Fouille de données</p>
+        </header>
+        <p>Implémentation d'un pipeline issu de la littérature pour la détection de communautés dans des graphes, par maximisation de la modularité.</p>
+        <div class="details" id="d1"><div class="details-inner">
+        <ul>
+          <li><strong>LPA → LPAm → LPAm+ → VNS/VNDS</strong> : chaque étape échappe aux optima locaux de la précédente</li>
+          <li><strong>9 graphes</strong> de référence, de 34 à plus de 31 000 sommets, <strong>40 exécutions</strong> par méthode et par graphe (graines 1 à 40)</li>
+          <li>Comparaison avec la littérature, revue de <strong>5 articles scientifiques</strong></li>
+          <li>Julia choisi pour la vitesse proche du compilé avec la lisibilité de Python</li>
+        </ul>
+        </div></div>
+        <button class="toggle" type="button" aria-expanded="false" aria-controls="d1" data-more="Voir les détails" data-less="Masquer les détails">Voir les détails</button>
+        <ul class="chips"><li>Théorie des graphes</li><li>Métaheuristiques</li><li>Optimisation</li></ul>
+        <p class="links"><a href="https://github.com/tarteeg/vns-modularity-clustering" target="_blank" rel="noopener">Code sur GitHub ↗</a></p>
+      </article>
+
       <article class="project" data-tags="ml">
         <header>
           <h3>Prédiction de la qualité de l'air à Montréal</h3>
@@ -204,25 +223,6 @@
         <button class="toggle" type="button" aria-expanded="false" aria-controls="d0" data-more="Voir les détails" data-less="Masquer les détails">Voir les détails</button>
         <ul class="chips"><li>Séries temporelles</li><li>Régression linéaire</li><li>Feature engineering</li></ul>
         <p class="links"><a href="https://github.com/tarteeg/prediction-qualite-air-montreal" target="_blank" rel="noopener">Code sur GitHub ↗</a></p>
-      </article>
-
-      <article class="project" data-tags="optim">
-        <header>
-          <h3>Clustering de graphes par maximisation de la modularité (VNS)</h3>
-          <p class="meta">Julia · 07/2026 – aujourd'hui · INF8111 Fouille de données</p>
-        </header>
-        <p>Réimplémentation, étape par étape, du pipeline de l'article d'Aloise et al. (10<sup>e</sup> DIMACS Implementation Challenge), proposé par le professeur Daniel Aloise.</p>
-        <div class="details" id="d1"><div class="details-inner">
-        <ul>
-          <li><strong>LPA → LPAm → LPAm+ → VNS/VNDS</strong> : chaque étape échappe aux optima locaux de la précédente</li>
-          <li><strong>9 graphes</strong> de référence, de 34 à plus de 31 000 sommets, <strong>40 exécutions</strong> par méthode et par graphe (graines 1 à 40)</li>
-          <li>Comparaison avec la littérature, revue de <strong>5 articles scientifiques</strong></li>
-          <li>Julia choisi pour la vitesse proche du compilé avec la lisibilité de Python</li>
-        </ul>
-        </div></div>
-        <button class="toggle" type="button" aria-expanded="false" aria-controls="d1" data-more="Voir les détails" data-less="Masquer les détails">Voir les détails</button>
-        <ul class="chips"><li>Théorie des graphes</li><li>Métaheuristiques</li><li>Optimisation</li></ul>
-        <p class="links"><a href="https://github.com/tarteeg/vns-modularity-clustering" target="_blank" rel="noopener">Code sur GitHub ↗</a></p>
       </article>
 
       <article class="project" data-tags="data ml">
@@ -366,6 +366,6 @@
 </main>
 
 <footer>© 2026 Sami Mostfa</footer>
-<script src="script.js?v=3"></script>
+<script src="script.js?v=4"></script>
 </body>
 </html>

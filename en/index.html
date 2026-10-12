@@ -94,7 +94,7 @@
 <li class="tl-item" data-type="projet">
         <button class="tl-card" type="button" aria-expanded="false" aria-controls="tl1">
           <span class="tl-when">07/2026 – present</span>
-          <span class="tl-title">Graph Clustering by Modularity</span>
+          <span class="tl-title">Graph Clustering by Modularity Maximization (VNS)</span>
           <span class="tl-sub">Julia · Polytechnique Montréal</span>
           <span class="tl-type">Project</span>
         </button>
@@ -187,6 +187,25 @@
     </div>
     <div class="projects">
 
+      <article class="project" data-tags="optim">
+        <header>
+          <h3>Graph Clustering by Modularity Maximization (VNS)</h3>
+          <p class="meta">Julia · 07/2026 – present · INF8111 Data Mining</p>
+        </header>
+        <p>Implementation of a pipeline from the literature for community detection in graphs, through modularity maximization.</p>
+        <div class="details" id="d1"><div class="details-inner">
+        <ul>
+          <li><strong>LPA → LPAm → LPAm+ → VNS/VNDS</strong>: each step escapes the local optima of the previous one</li>
+          <li><strong>9 benchmark graphs</strong>, from 34 to over 31,000 vertices, <strong>40 runs</strong> per method and graph (seeds 1 to 40)</li>
+          <li>Comparison with the literature, review of <strong>5 scientific papers</strong></li>
+          <li>Julia chosen for near-compiled speed with Python-like readability</li>
+        </ul>
+        </div></div>
+        <button class="toggle" type="button" aria-expanded="false" aria-controls="d1" data-more="Show details" data-less="Hide details">Show details</button>
+        <ul class="chips"><li>Graph theory</li><li>Metaheuristics</li><li>Optimization</li></ul>
+        <p class="links"><a href="https://github.com/tarteeg/vns-modularity-clustering" target="_blank" rel="noopener">Code on GitHub ↗</a></p>
+      </article>
+
       <article class="project" data-tags="ml">
         <header>
           <h3>Air Quality Forecasting in Montréal</h3>
@@ -204,25 +223,6 @@
         <button class="toggle" type="button" aria-expanded="false" aria-controls="d0" data-more="Show details" data-less="Hide details">Show details</button>
         <ul class="chips"><li>Time series</li><li>Linear regression</li><li>Feature engineering</li></ul>
         <p class="links"><a href="https://github.com/tarteeg/prediction-qualite-air-montreal" target="_blank" rel="noopener">Code on GitHub ↗</a></p>
-      </article>
-
-      <article class="project" data-tags="optim">
-        <header>
-          <h3>Graph Clustering by Modularity Maximization (VNS)</h3>
-          <p class="meta">Julia · 07/2026 – present · INF8111 Data Mining</p>
-        </header>
-        <p>Step-by-step reimplementation of the pipeline from Aloise et al. (10<sup>th</sup> DIMACS Implementation Challenge), a paper suggested by Professor Daniel Aloise.</p>
-        <div class="details" id="d1"><div class="details-inner">
-        <ul>
-          <li><strong>LPA → LPAm → LPAm+ → VNS/VNDS</strong>: each step escapes the local optima of the previous one</li>
-          <li><strong>9 benchmark graphs</strong>, from 34 to over 31,000 vertices, <strong>40 runs</strong> per method and graph (seeds 1 to 40)</li>
-          <li>Comparison with the literature, review of <strong>5 scientific papers</strong></li>
-          <li>Julia chosen for near-compiled speed with Python-like readability</li>
-        </ul>
-        </div></div>
-        <button class="toggle" type="button" aria-expanded="false" aria-controls="d1" data-more="Show details" data-less="Hide details">Show details</button>
-        <ul class="chips"><li>Graph theory</li><li>Metaheuristics</li><li>Optimization</li></ul>
-        <p class="links"><a href="https://github.com/tarteeg/vns-modularity-clustering" target="_blank" rel="noopener">Code on GitHub ↗</a></p>
       </article>
 
       <article class="project" data-tags="data ml">
@@ -366,6 +366,6 @@
 </main>
 
 <footer>© 2026 Sami Mostfa</footer>
-<script src="../script.js?v=3"></script>
+<script src="../script.js?v=4"></script>
 </body>
 </html>

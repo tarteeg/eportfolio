@@ -107,3 +107,6 @@ tlFilters.forEach(btn => {
     });
   });
 });
+// Filtre par défaut : projets
+const defaultTl = document.querySelector('.tl-filter[data-tl="projet"]');
+if (defaultTl) defaultTl.click();
