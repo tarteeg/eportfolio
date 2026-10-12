@@ -181,7 +181,8 @@ section:not(.hero) .section-intro { margin-left: auto; margin-right: auto; text-
   .nav nav { display: none; }
   .hero { grid-template-columns: 1fr; min-height: 0; gap: 2rem; padding-top: 2.5rem; }
   .hero-photo { order: -1; }
-  .hero-photo img { width: min(78%, 280px); margin: 0 auto; }
+  .hero-photo { width: min(78%, 280px); justify-self: center; }
+  .hero-photo img { width: 100%; margin: 0; }
   .duo { grid-template-columns: 1fr; }
   .plus { text-align: center; }
   .job { grid-template-columns: 1fr; gap: .3rem; }
